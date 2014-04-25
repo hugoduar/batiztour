@@ -1,0 +1,8 @@
+.reel-annotation {
+	font-family: Verdana, "Geneva", sans-serif;
+	font-size: 20pt;
+	color: #FFF;
+	font-weight:bold;
+	-webkit-text-stroke-color: #000000;
+	-webkit-text-stroke-width: 2px; 
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Obtén BatizTour</title>
+
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="css/normalize.css">
+	<style>
+		body{
+			margin-left: 10px;
+		}
+		footer{
+			padding-top: 100px;
+		}
+		#medidas{
+			padding-top: 30px;
+		}
+		.set-title{
+			font-size: 15pt;
+		}
+		#generate{
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Insertar el Tour</h1>
+	<object id="testObj" type="text/html" data="http://batiztour.herokuapp.com" width="1000" height="500"> </object>
+
+	<div class="form-params">
+		<textarea name="toCopy" id="toCopy" cols="30" rows="3" readonly></object>
+		</textarea>
+		<form id="medidas">
+			<div class="set-title">Ajustar medidas</div>
+			<label for="setHeight">Ancho:</label>
+			<input type="text" id="setHeight" name="setHeight"/>
+			<label for="setWidth">Largo:</label>
+			<input type="text" id="setWidth" name="setWidth"/>
+		</form>
+		<button id="generate">Generar html5</button>
+		<button id="generatelt">&lt; html5</button>
+	</div>
+
+	<footer>
+		BatizTour 2014
+	</footer>
+	<script type="text/javascript">
+	var defaultHeight = 500;
+	var defaultWidth = 700;
+	var toCopy = '<object type="text/html" data="http://batiztour.herokuapp.com" width="'+defaultWidth+'" height="'+defaultHeight+'"></object>';
+	$(function(){
+		$('#toCopy').val(toCopy);
+		$('#toCopy').select();
+		$('#generate').click(function(){
+			defaultHeight = $('#setHeight').val();
+			defaultWidth = $('#setWidth').val();
+			$('#testObj').attr('width', defaultWidth);
+			$('#testObj').attr('height', defaultHeight);
+			toCopy = '<object type="text/html" data="http://batiztour.herokuapp.com" width="'+defaultWidth+'" height="'+defaultHeight+'"></object>';
+			$('#toCopy').val(toCopy);
+			$('#toCopy').select();
+		});
+		$('#generatelt').click(function(){
+			defaultHeight = $('#setHeight').val();
+			defaultWidth = $('#setWidth').val();
+			$('#testObj').attr('width', defaultWidth);
+			$('#testObj').attr('height', defaultHeight);
+			toCopy = '<iframe src="http://batiztour.herokuapp.com" width="'+defaultWidth+'" height="'+defaultHeight+'"></iframe>';
+			$('#toCopy').val(toCopy);
+			$('#toCopy').select();
+		});
+		$('#setHeight').val(defaultHeight);
+		$('#setWidth').val(defaultWidth);
+		$('#testObj').attr('width', defaultWidth);
+		$('#testObj').attr('height', defaultHeight);
+	});
+
+	</script>
+</body>
+</html>

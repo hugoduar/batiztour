@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Batiz Tour</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>User-editable Shapes</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <style>
+        html, body, #map-canvas {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+        </style>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script>
+        // This example adds a user-editable rectangle to the map.
+
+        function initialize() {
+            var mapOptions = {
+                center: new google.maps.LatLng(19.4534571, -99.1753135),
+                zoom: 19,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            };
+            var map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+            var myLatlng = new google.maps.LatLng(19.453947, -99.175176);
+            var marker = new google.maps.Marker({
+                icon: 'img/flag.png',
+                position: myLatlng,
+                map: map,
+                animation: google.maps.Animation.DROP,
+                url: 'gob/entrada_principal.html',
+                title: 'BatizTour'
+            });
+            var marker2 = new google.maps.Marker({
+                icon: 'img/share.png',
+                position: new google.maps.LatLng(19.453759, -99.175100),
+                map: map,
+                animation: google.maps.Animation.DROP,
+                url: 'https://goo.gl/maps/SJjuh',
+                title: 'Ir al mapa 3d'
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                window.location.href = marker.url;
+            });
+            google.maps.event.addListener(marker2, 'click', function() {
+                window.location.href = marker2.url;
+            });
+            // [START region_rectangle]
+            var bounds = [
+                new google.maps.LatLng(19.454348, -99.175404),
+                new google.maps.LatLng(19.453410, -99.176006),
+                new google.maps.LatLng(19.452870, -99.175234),
+                new google.maps.LatLng(19.453331, -99.174615),
+                new google.maps.LatLng(19.453953, -99.175022),
+
+            ];
+
+            // Define a rectangle and set its editable property to true.
+            var rectangle = new google.maps.Polygon({
+                paths: bounds,
+                strokeColor: "#6B82FC",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillOpacity: 0.0
+            });
+
+            rectangle.setMap(map);
+            // [END region_rectangle]
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+    </head>
+
+    <body>
+        <div id="map-canvas"></div>
+    </body>
+
+    </html>
+
+    <a href="https://goo.gl/maps/SJjuh">Ir al mapa</a>
+</body>
+
+</html>
