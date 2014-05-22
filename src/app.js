@@ -24,4 +24,5 @@ app.get('/i', function(req, res){
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/js'));
+app.use(express.static(__dirname + '/3d'));
 app.use(express.static(__dirname + '/img'));
