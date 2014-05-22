@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Recorrido 3D</title>
+    <script type="text/javascript" src="js/three.js"></script>
+    <script type="text/javascript" src="js/ColladaLoader.js"></script>
+    <script type="text/javascript">
+    var loader = new THREE.ColladaLoader();
+    loader.load('batiz.dae', function(result) {
+        scene.add(result.scene);
+    });
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
